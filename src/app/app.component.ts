@@ -31,9 +31,9 @@ export class AppComponent {
     this.apiService.CheckFriend(userId).subscribe((res: any) => {
       console.log(res);
       if (res.status == "friend") {
-        this.router.navigate(['/page1']);
+        this.router.navigate(['/page1'], { replaceUrl: true });
       } else if (res.status == "not friend") {
-        this.router.navigate(['/page2']);
+        this.router.navigate(['/page2'], { replaceUrl: true });
       }
     });
   }
