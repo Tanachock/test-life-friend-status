@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import liff from '@line/liff';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from './api.service';
 @Component({
   selector: 'app-root',
@@ -8,8 +8,9 @@ import { ApiService } from './api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  event = "";
 
-  constructor(private router: Router, private apiService: ApiService) { }
+  constructor(private router: Router, private apiService: ApiService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     console.log(liff);
@@ -24,6 +25,11 @@ export class AppComponent {
         });
       }
     });
+
+    this.route.queryParams.subscribe(params => {
+      this.event = params['event'];
+      console.log(this.event);
+    });
   }
 
   CheckFriend(userId: string) {
@@ -32,6 +38,10 @@ export class AppComponent {
       console.log(res);
       if (res.status == "friend") {
         this.router.navigate(['/page1'], { replaceUrl: true });
+        //save ลง mongo event param
+        this.apiService.SaveEvent(this.event, userId).subscribe((res: any) => {
+          console.log(res);
+        });
       } else if (res.status == "not friend") {
         this.router.navigate(['/page2'], { replaceUrl: true });
       }

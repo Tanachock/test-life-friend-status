@@ -10,4 +10,7 @@ export class ApiService {
   CheckFriend(userId: string) {
     return this.http.post(`${this.apiUrl}/CheckFriend`, { userId: userId });
   }
+  SaveEvent(event: any, userId: string) {
+    return this.http.post(`${this.apiUrl}/SaveEvent`, { event: event, userId: userId });
+  }
 }
