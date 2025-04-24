@@ -1,0 +1,13 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
+
+  constructor(private http: HttpClient) { }
+  apiUrl = 'https://6cb6-2001-fb1-2a-dca0-882-e251-ef79-3137.ngrok-free.app';
+  CheckFriend(userId: string) {
+    return this.http.post(`${this.apiUrl}/CheckFriend`, { userId: userId });
+  }
+}
