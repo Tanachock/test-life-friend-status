@@ -27,6 +27,7 @@ export class AppComponent {
   }
 
   CheckFriend(userId: string) {
+    console.log(userId);
     this.apiService.CheckFriend(userId).subscribe((res: any) => {
       console.log(res);
       if (res == "friend") {
