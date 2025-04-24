@@ -30,9 +30,9 @@ export class AppComponent {
     console.log(userId);
     this.apiService.CheckFriend(userId).subscribe((res: any) => {
       console.log(res);
-      if (res == "friend") {
+      if (res.status == "friend") {
         this.router.navigate(['/page1']);
-      } else if (res == "not friend") {
+      } else if (res.status == "not friend") {
         this.router.navigate(['/page2']);
       }
     });
