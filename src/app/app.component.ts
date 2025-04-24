@@ -8,17 +8,21 @@ import { ApiService } from './api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'LIFF';
 
   constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
-    (liff as any).init({
+    console.log(liff);
+    liff.init({
       liffId: '2007317200-7nLJVveG'
     }).then(() => {
-      liff.getProfile().then((profile) => {
-        this.CheckFriend(profile.userId);
-      });
+      if (!liff.isLoggedIn()) {
+        liff.login();
+      }else{
+        liff.getProfile().then((profile) => {
+          this.CheckFriend(profile.userId);
+        });
+      }
     });
   }
 
