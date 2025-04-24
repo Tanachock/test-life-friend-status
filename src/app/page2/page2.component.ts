@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import liff from '@line/liff';
 
 @Component({
   selector: 'app-page2',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class Page2Component {
 
+  addFriend() {
+    liff.openWindow({
+      url: 'https://line.me/R/ti/p/@893iaere',
+      external: true
+    });
+  }
 }
