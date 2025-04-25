@@ -57,8 +57,8 @@ export class AppComponent {
 
   CheckFriend(status: any, userId: string) {
     console.log(userId);
-    console.log(status.friendStatus);
-    if (status.friendStatus == true) {
+    console.log("status", status.friendFlag);
+    if (status.friendFlag == true) {
       this.router.navigate(['/page1'], { replaceUrl: true });
       //save ลง mongo event param
       console.log(this.event);
@@ -66,7 +66,7 @@ export class AppComponent {
       this.apiService.SaveEvent(this.event, userId).subscribe((res: any) => {
         console.log(res);
       });
-    } else if (status.friendStatus == false) {
+    } else if (status.friendFlag == false) {
       this.router.navigate(['/page2'], { queryParams: { event: this.event }, replaceUrl: true });
     }
   }
