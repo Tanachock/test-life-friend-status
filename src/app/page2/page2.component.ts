@@ -17,12 +17,27 @@ export class Page2Component {
       this.event = params['event'];
     });
   }
+  // addFriend() {
+  //   liff.openWindow({
+  //     url: 'https://line.me/R/ti/p/@893iaere',
+  //     external: false
+  //   });
+  //   liff.getFriendship().then((status) => {
+  //     if (status.friendFlag == true) {
+  //       liff.openWindow({
+  //         url: 'https://liff.line.me/2007317200-7nLJVveG?event=' + this.event,
+  //         external: false
+  //       });
+  //     }
+  //   });
+  // }
+
   addFriend() {
+    liff.logout();
     liff.openWindow({
-      url: 'https://line.me/R/ti/p/@893iaere',
+      url: 'https://liff.line.me/2007317200-7nLJVveG?event=' + this.event,
       external: false
     });
 
-    //save ลง mongo event param
   }
 }
