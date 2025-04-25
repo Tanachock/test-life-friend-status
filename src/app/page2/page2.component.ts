@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import liff from '@line/liff';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from '../api.service';
 @Component({
   selector: 'app-page2',
   templateUrl: './page2.component.html',
@@ -10,7 +11,7 @@ export class Page2Component {
 
   event = "";
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -42,6 +43,14 @@ export class Page2Component {
     liff.openWindow({
       url: 'https://line.me/R/ti/p/@893iaere',
       external: false
+    });
+
+    liff.getProfile().then((profile) => {
+      this.apiService.SaveUserCancel(profile.userId, this.event).subscribe((res) => {
+        console.log(res);
+      });
+    }).catch((err) => {
+      console.error("Error getting profile:", err);
     });
   }
 }

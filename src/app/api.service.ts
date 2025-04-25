@@ -13,4 +13,8 @@ export class ApiService {
   SaveEvent(event: any, userId: string) {
     return this.http.post(`${this.apiUrl}/SaveEvent`, { event: event, userId: userId });
   }
+
+  SaveUserCancel(userId: string, event: string) {
+    return this.http.post(`${this.apiUrl}/SaveUserCancel`, { userId: userId, event: event });
+  }
 }
