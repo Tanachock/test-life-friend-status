@@ -42,9 +42,9 @@ export class AppComponent {
         liff.login();
       }else{
         liff.getFriendship().then((status: any) => {
-          console.log(status.friendStatus);
+          console.log(status);
           liff.getProfile().then((profile) => {
-            this.CheckFriend(status.friendStatus, profile.userId);
+            this.CheckFriend(status, profile.userId);
           });
         });
       }
@@ -57,20 +57,18 @@ export class AppComponent {
 
   CheckFriend(status: any, userId: string) {
     console.log(userId);
-    this.apiService.CheckFriend(userId).subscribe((res: any) => {
-      console.log(res);
-      if (status == true) {
-        this.router.navigate(['/page1'], { replaceUrl: true });
-        //save ลง mongo event param
-        console.log(this.event);
-        console.log(userId);
-        this.apiService.SaveEvent(this.event, userId).subscribe((res: any) => {
-          console.log(res);
-        });
-      } else if (status == false) {
-        this.router.navigate(['/page2'], { queryParams: { event: this.event }, replaceUrl: true });
-      }
-    });
+    console.log(status.friendStatus);
+    if (status.friendStatus == true) {
+      this.router.navigate(['/page1'], { replaceUrl: true });
+      //save ลง mongo event param
+      console.log(this.event);
+      console.log(userId);
+      this.apiService.SaveEvent(this.event, userId).subscribe((res: any) => {
+        console.log(res);
+      });
+    } else if (status.friendStatus == false) {
+      this.router.navigate(['/page2'], { queryParams: { event: this.event }, replaceUrl: true });
+    }
   }
 
   // CheckFriend(userId: string) {
