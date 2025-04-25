@@ -12,6 +12,27 @@ export class AppComponent {
 
   constructor(private router: Router, private apiService: ApiService, private route: ActivatedRoute) { }
 
+  // ngOnInit() {
+  //   console.log(liff);
+  //   liff.init({
+  //     liffId: '2007317200-7nLJVveG'
+  //   }).then(() => {
+  //     if (!liff.isLoggedIn()) {
+  //       liff.login();
+  //     }else{
+  //       liff.getProfile().then((profile) => {
+  //         this.CheckFriend(profile.userId);
+  //       });
+  //     }
+  //   });
+
+  //   this.route.queryParams.subscribe(params => {
+  //     this.event = params['event'];
+  //     console.log(this.event);
+  //   });
+  // }
+
+
   ngOnInit() {
     console.log(liff);
     liff.init({
@@ -20,8 +41,8 @@ export class AppComponent {
       if (!liff.isLoggedIn()) {
         liff.login();
       }else{
-        liff.getProfile().then((profile) => {
-          this.CheckFriend(profile.userId);
+        liff.getFriendship().then((status) => {
+          console.log(status);
         });
       }
     });
@@ -39,11 +60,13 @@ export class AppComponent {
       if (res.status == "friend") {
         this.router.navigate(['/page1'], { replaceUrl: true });
         //save ลง mongo event param
+        console.log(this.event);
+        console.log(userId);
         this.apiService.SaveEvent(this.event, userId).subscribe((res: any) => {
           console.log(res);
         });
       } else if (res.status == "not friend") {
-        this.router.navigate(['/page2'], { replaceUrl: true });
+        this.router.navigate(['/page2'], { queryParams: { event: this.event }, replaceUrl: true });
       }
     });
   }
