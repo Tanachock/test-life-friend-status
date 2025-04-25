@@ -41,9 +41,7 @@ export class Page2Component {
   addFriend() {
     liff.openWindow({
       url: 'https://line.me/R/ti/p/@893iaere',
-      external: true
+      external: false
     });
-
-    alert('หลังจากเพิ่มเพื่อนเสร็จแล้ว กรุณากลับมายังแอป LIFF เพื่อดำเนินการต่อ');
   }
 }
