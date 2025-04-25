@@ -20,7 +20,7 @@ export class Page2Component {
   addFriend() {
     liff.openWindow({
       url: 'https://line.me/R/ti/p/@893iaere',
-      external: true
+      external: false
     });
 
     //save ลง mongo event param
