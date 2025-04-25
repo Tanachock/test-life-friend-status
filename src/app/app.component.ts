@@ -41,10 +41,10 @@ export class AppComponent {
       if (!liff.isLoggedIn()) {
         liff.login();
       }else{
-        liff.getFriendship().then((status) => {
-          console.log(status);
+        liff.getFriendship().then((status: any) => {
+          console.log(status.friendStatus);
           liff.getProfile().then((profile) => {
-            this.CheckFriend(status, profile.userId);
+            this.CheckFriend(status.friendStatus, profile.userId);
           });
         });
       }
