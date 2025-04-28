@@ -1,0 +1,14 @@
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.welcome-text {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #333; 
+}
