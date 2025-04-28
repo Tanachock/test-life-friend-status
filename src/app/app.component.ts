@@ -61,16 +61,24 @@ export class AppComponent {
     if (status.friendFlag == true) {
       this.router.navigate(['/page1'], { replaceUrl: true });
       //save ลง mongo event param
+      console.log("Add Friend");
       console.log(this.event);
       console.log(userId);
-      this.apiService.SaveEvent(this.event, userId).subscribe((res: any) => {
+      this.apiService.SaveData(userId, this.event).subscribe((res: any) => {
         console.log(res);
       });
+      // this.apiService.SaveEvent(this.event, userId).subscribe((res: any) => {
+      //   console.log(res);
+      // });
     } else if (status.friendFlag == false) {
       this.router.navigate(['/page2'], { replaceUrl: true });
+      console.log("Not Add Friend");
       console.log(userId);
       console.log(this.event);
-      this.apiService.SaveUserCancel(userId, this.event).subscribe((res: any) => {
+      this.apiService.SaveData(userId, this.event).subscribe((res: any) => {
+        console.log(res);
+      });
+      this.apiService.SaveUserCancelAddFriend(userId, this.event).subscribe((res: any) => {
         console.log(res);
       });
     }
