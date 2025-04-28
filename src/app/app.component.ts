@@ -68,6 +68,8 @@ export class AppComponent {
       });
     } else if (status.friendFlag == false) {
       this.router.navigate(['/page2'], { replaceUrl: true });
+      console.log(userId);
+      console.log(this.event);
       this.apiService.SaveUserCancel(userId, this.event).subscribe((res: any) => {
         console.log(res);
       });

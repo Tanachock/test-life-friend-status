@@ -20,19 +20,11 @@ export class Page2Component {
       }
     });
   }
-  
+
   addFriend() {
     liff.openWindow({
       url: 'https://line.me/R/ti/p/@893iaere',
       external: false
-    });
-
-    liff.getProfile().then((profile) => {
-      this.apiService.SaveUserCancel(profile.userId, this.event).subscribe((res) => {
-        console.log(res);
-      });
-    }).catch((err) => {
-      console.error("Error getting profile:", err);
     });
   }
 }
