@@ -11,34 +11,16 @@ export class Page2Component {
 
   event = "";
 
-  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) { }
+  constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.event = params['event'];
-    });
-
     liff.getFriendship().then((status) => {
       if (status.friendFlag == true) {
-        this.router.navigate(['/page1'], { queryParams: { event: this.event } });
+        this.router.navigate(['/page1']);
       }
     });
   }
-  // addFriend() {
-  //   liff.openWindow({
-  //     url: 'https://line.me/R/ti/p/@893iaere',
-  //     external: false
-  //   });
-  //   liff.getFriendship().then((status) => {
-  //     if (status.friendFlag == true) {
-  //       liff.openWindow({
-  //         url: 'https://liff.line.me/2007317200-7nLJVveG?event=' + this.event,
-  //         external: false
-  //       });
-  //     }
-  //   });
-  // }
-
+  
   addFriend() {
     liff.openWindow({
       url: 'https://line.me/R/ti/p/@893iaere',

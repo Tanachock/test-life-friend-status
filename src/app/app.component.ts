@@ -67,25 +67,10 @@ export class AppComponent {
         console.log(res);
       });
     } else if (status.friendFlag == false) {
-      this.router.navigate(['/page2'], { queryParams: { event: this.event }, replaceUrl: true });
+      this.router.navigate(['/page2'], { replaceUrl: true });
+      this.apiService.SaveUserCancel(userId, this.event).subscribe((res: any) => {
+        console.log(res);
+      });
     }
   }
-
-  // CheckFriend(userId: string) {
-  //   console.log(userId);
-  //   this.apiService.CheckFriend(userId).subscribe((res: any) => {
-  //     console.log(res);
-  //     if (res.status == "friend") {
-  //       this.router.navigate(['/page1'], { replaceUrl: true });
-  //       //save ลง mongo event param
-  //       console.log(this.event);
-  //       console.log(userId);
-  //       this.apiService.SaveEvent(this.event, userId).subscribe((res: any) => {
-  //         console.log(res);
-  //       });
-  //     } else if (res.status == "not friend") {
-  //       this.router.navigate(['/page2'], { queryParams: { event: this.event }, replaceUrl: true });
-  //     }
-  //   });
-  // }
 }
