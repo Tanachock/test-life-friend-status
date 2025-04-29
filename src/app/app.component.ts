@@ -36,7 +36,7 @@ export class AppComponent {
   ngOnInit() {
     console.log(liff);
     liff.init({
-      liffId: '2007343729-7zvo5l60'
+      liffId: '2007343768-ARmkLwxm'
     }).then(() => {
       if (!liff.isLoggedIn()) {
         liff.login();
