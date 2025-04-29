@@ -10,13 +10,13 @@ export class ApiService {
   CheckFriend(userId: string) {
     return this.http.post(`${this.apiUrl}/CheckFriend`, { userId: userId });
   }
-  SaveEvent(event: any, userId: string) {
-    return this.http.post(`${this.apiUrl}/SaveEvent`, { event: event, userId: userId });
+  SaveUserAddFriend(event: any, userId: string) {
+    return this.http.post(`${this.apiUrl}/SaveUserAddFriend`, { event: event, userId: userId });
   }
 
-  SaveData(userID: string, event: string) {
-    return this.http.post(`${this.apiUrl}/SaveData`, { userID: userID, event: event });
-  }
+  // SaveData(userID: string, event: string) {
+  //   return this.http.post(`${this.apiUrl}/SaveData`, { userID: userID, event: event });
+  // }
 
   SaveUserCancelAddFriend(userID: string, event: string) {
     return this.http.post(`${this.apiUrl}/SaveUserCancelAddFriend`, { userID: userID, event: event });

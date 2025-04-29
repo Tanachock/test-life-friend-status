@@ -64,7 +64,7 @@ export class AppComponent {
       console.log("Add Friend");
       console.log(this.event);
       console.log(userId);
-      this.apiService.SaveEvent(this.event, userId).subscribe((res: any) => {
+      this.apiService.SaveUserAddFriend(this.event, userId).subscribe((res: any) => {
         console.log(res);
       });
     } else if (status.friendFlag == false) {
@@ -72,9 +72,9 @@ export class AppComponent {
       console.log("Not Add Friend");
       console.log(userId);
       console.log(this.event);
-      this.apiService.SaveData(userId, this.event).subscribe((res: any) => {
-        console.log(res);
-      });
+      // this.apiService.SaveData(userId, this.event).subscribe((res: any) => {
+      //   console.log(res);
+      // });
       this.apiService.SaveUserCancelAddFriend(userId, this.event).subscribe((res: any) => {
         console.log(res);
       });
