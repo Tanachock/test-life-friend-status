@@ -64,12 +64,9 @@ export class AppComponent {
       console.log("Add Friend");
       console.log(this.event);
       console.log(userId);
-      this.apiService.SaveData(userId, this.event).subscribe((res: any) => {
+      this.apiService.SaveEvent(this.event, userId).subscribe((res: any) => {
         console.log(res);
       });
-      // this.apiService.SaveEvent(this.event, userId).subscribe((res: any) => {
-      //   console.log(res);
-      // });
     } else if (status.friendFlag == false) {
       this.router.navigate(['/page2'], { replaceUrl: true });
       console.log("Not Add Friend");
