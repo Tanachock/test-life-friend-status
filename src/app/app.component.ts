@@ -72,9 +72,9 @@ export class AppComponent {
       console.log("Not Add Friend");
       console.log(userId);
       console.log(this.event);
-      // this.apiService.SaveData(userId, this.event).subscribe((res: any) => {
-      //   console.log(res);
-      // });
+      this.apiService.SaveDataCondition(userId, this.event).subscribe((res: any) => {
+        console.log(res);
+      });
       this.apiService.SaveUserCancelAddFriend(userId, this.event).subscribe((res: any) => {
         console.log(res);
       });

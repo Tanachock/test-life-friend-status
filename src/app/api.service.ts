@@ -14,9 +14,9 @@ export class ApiService {
     return this.http.post(`${this.apiUrl}/SaveUserAddFriend`, { event: event, userId: userId });
   }
 
-  // SaveData(userID: string, event: string) {
-  //   return this.http.post(`${this.apiUrl}/SaveData`, { userID: userID, event: event });
-  // }
+  SaveDataCondition(userID: string, event: string) {
+    return this.http.post(`${this.apiUrl}/SaveData`, { userID: userID, event: event });
+  }
 
   SaveUserCancelAddFriend(userID: string, event: string) {
     return this.http.post(`${this.apiUrl}/SaveUserCancelAddFriend`, { userID: userID, event: event });
