@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 export class ApiService {
 
   constructor(private http: HttpClient) { }
-  apiUrl = 'https://6cb6-2001-fb1-2a-dca0-882-e251-ef79-3137.ngrok-free.app';
+  apiUrl = 'https://98c9-2001-fb1-2b-c403-f09a-4182-9ce7-9105.ngrok-free.app';
   CheckFriend(userId: string) {
     return this.http.post(`${this.apiUrl}/CheckFriend`, { userId: userId });
   }

@@ -12,27 +12,6 @@ export class AppComponent {
 
   constructor(private router: Router, private apiService: ApiService, private route: ActivatedRoute) { }
 
-  // ngOnInit() {
-  //   console.log(liff);
-  //   liff.init({
-  //     liffId: '2007317200-7nLJVveG'
-  //   }).then(() => {
-  //     if (!liff.isLoggedIn()) {
-  //       liff.login();
-  //     }else{
-  //       liff.getProfile().then((profile) => {
-  //         this.CheckFriend(profile.userId);
-  //       });
-  //     }
-  //   });
-
-  //   this.route.queryParams.subscribe(params => {
-  //     this.event = params['event'];
-  //     console.log(this.event);
-  //   });
-  // }
-
-
   ngOnInit() {
     console.log(liff);
     liff.init({
